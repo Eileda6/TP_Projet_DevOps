@@ -55,3 +55,21 @@ app.get('/scores', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur des scores lancé sur http://localhost:${PORT}`);
 });
+
+fetch("http://localhost:3000/score", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: "Alice", // à remplacer par un vrai pseudo
+    score: 12
+  })
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Score enregistré :", data);
+})
+.catch(err => {
+  console.error("Erreur lors de l'envoi du score :", err);
+});
