@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Jeu de Memory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🧠 Jeu de Memory</h1>
+  <p>Coups : <span id="score">0</span></p>
+  <div class="game-board" id="gameBoard"></div>
+  <div id="winScreen" class="win-screen hidden">
+    <h2>🎉 Bravo ! Tu as gagné !</h2>
+    <p>Tu as terminé en <span id="finalScore">0</span> coups !</p>
+    <button onclick="restartGame()">Rejouer</button>
+  </div>
+  
+  
+  <script src="script.js"></script>
+</body>
+</html>
