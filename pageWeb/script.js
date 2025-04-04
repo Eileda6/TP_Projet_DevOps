@@ -38,6 +38,29 @@ function handleCardClick(e) {
         setTimeout(() => {
           document.getElementById("finalScore").textContent = score;
           document.getElementById("winScreen").classList.remove("hidden");
+          const playerName = document.getElementById("playerName").value;
+
+    if (playerName) {
+      fetch("http://localhost:3000/score", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: playerName,
+          score: score,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("✅ Score enregistré :", data);
+        })
+        .catch((err) => {
+          console.error("❌ Erreur lors de l'envoi du score :", err);
+        });
+    } else {
+      console.warn("⚠️ Aucun pseudo entré, score non envoyé !");
+    }
         }, 500);
       }
     } else {
