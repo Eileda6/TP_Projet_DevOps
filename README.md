@@ -30,17 +30,31 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
 
 
 1. **Ouvrir un terminal** dans le dossier `TP_Projet_DevOps`
-
-2. **Construire l’image Docker** :
+2. **Lancer le serveur Node.js** (backend) :
+   - Va dans le dossier `server/` :
+     ```bash
+     cd server
+     ```
+   - Installe les dépendances :
+     ```bash
+     npm install
+     ```
+   - Lance le serveur :
+     ```bash
+     node server.js
+     ```
+   - Le serveur sera accessible sur `http://localhost:3000`
+     
+3. **Construire l’image Docker** :
    ```bash
    docker-compose build
-3. **Lancer le jeu** :
+4. **Lancer le jeu** :
    ```bash
    docker-compose up
 
 Ouvrir le navigateur a l'adresse 👉 http://localhost:8080
 
-4. **Arrêter le jeu** :
+5. **Arrêter le jeu** :
    ```bash
    docker-compose down
 ---
