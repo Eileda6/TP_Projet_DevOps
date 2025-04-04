@@ -1,19 +1,8 @@
+version: "3.8"
 
-version: '3.8'
 services:
-  web:
+  memory-game:
     build: .
     ports:
-      - "8080:3000"
-    depends_on:
-      - redis
-    environment:
-      - REDIS_HOST=redis
-  redis:
-    image: 'redis:latest'
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-volumes:
-  redis_data:
+      - "8080:8080"
+    container_name: memory-game
