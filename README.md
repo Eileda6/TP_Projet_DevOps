@@ -27,7 +27,9 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
 │ ├── package-lock.json
 │ ├── package.json
 │ ├── scores.json
-│ └── serveur.js   
+│ ├── serveur.js
+| └── test/
+│       └── serveur.test.js
 ├── Dockerfile 
 ├── docker-compose.yml 
 └── README.md</pre>
