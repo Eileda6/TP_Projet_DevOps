@@ -1,0 +1,16 @@
+{
+  "name": "tp_projet_devops",
+  "version": "1.0.0",
+  "description": "Un petit jeu de Memory (jeu de paires) réalisé en **HTML**, **CSS** et **JavaScript**.  \r Le but : retrouver toutes les paires de cartes avec le moins de coups possible.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+  
+}

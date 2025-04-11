@@ -14,3 +14,14 @@ EXPOSE 8080
 
 # Lance le serveur depuis /app (où index.html se trouve maintenant)
 CMD ["http-server", ".", "-p", "8080"]
+
+# Dockerfile
+FROM node:20
+
+WORKDIR /app
+COPY serveur/package*.json ./
+RUN npm install
+COPY serveur .
+
+EXPOSE 3000
+CMD ["node", "serveur.js"]
