@@ -39,7 +39,7 @@ function handleCardClick(e) {
           document.getElementById("finalScore").textContent = score;
           document.getElementById("winScreen").classList.remove("hidden");
           const playerName = document.getElementById("playerName").value;
-
+          
     if (playerName) {
       fetch("http://localhost:3000/score", {
         method: "POST",
@@ -118,3 +118,22 @@ function restartGame() {
     
   }
   
+  const playerName = document.getElementById("playerName").value;
+
+fetch("http://localhost:3000/score", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: playerName,
+    score: score,
+  }),
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Score enregistré :", data);
+})
+.catch(err => {
+  console.error("Erreur lors de l'envoi du score :", err);
+});

@@ -8,8 +8,11 @@
 <body>
   <h1>🧠 Jeu de Memory</h1>
   <p>Coups : <span id="score">0</span></p>
-  <label for="playerName">Pseudo :</label>
-  <input type="text" id="playerName" placeholder="Entre ton pseudo" />
+  <div id="playerInfo">
+    <label for="playerName">Pseudo :</label>
+    <input type="text" id="playerName" placeholder="Ton nom">
+  </div>
+  
 
   <div class="game-board" id="gameBoard"></div>
   <div id="winScreen" class="win-screen hidden">
