@@ -43,7 +43,7 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
      ```bash
      node server.js
      ```
-   - Le serveur sera accessible sur `http://localhost:3000`
+   - Le serveur sera accessible sur http://localhost:3000
      
 3. **Construire l’image Docker** :
    ```bash
