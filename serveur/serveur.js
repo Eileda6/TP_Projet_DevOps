@@ -1,17 +1,18 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
+const SCORES_FILE = './scores.json';
 
-// Autorise les requêtes venant de ton jeu en local
-const cors = require('cors');
 app.use(cors());
-
-// Pour lire les données JSON envoyées depuis le jeu
 app.use(express.json());
 
-// Chemin vers le fichier où on stocke les scores
-const SCORES_FILE = './scores.json';
+// Route pour la racine (utile pour vérifier que le serveur tourne)
+app.get('/', (req, res) => {
+  res.send('🚀 Serveur Memory Game en ligne !');
+});
 
 // Route pour ajouter un score
 app.post('/score', (req, res) => {
@@ -21,24 +22,16 @@ app.post('/score', (req, res) => {
     return res.status(400).json({ message: 'Nom ou score invalide' });
   }
 
-  // Lit les scores existants
   let scores = [];
   if (fs.existsSync(SCORES_FILE)) {
     scores = JSON.parse(fs.readFileSync(SCORES_FILE));
   }
 
-  // Ajoute le nouveau score
   scores.push({ name, score, date: new Date().toISOString() });
-
-  // Trie les scores (du plus petit score au plus grand)
   scores.sort((a, b) => a.score - b.score);
-
-  // Garde les 10 meilleurs
   scores = scores.slice(0, 10);
 
-  // Enregistre les scores
   fs.writeFileSync(SCORES_FILE, JSON.stringify(scores, null, 2));
-
   res.json({ message: 'Score ajouté !' });
 });
 
@@ -54,22 +47,4 @@ app.get('/scores', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Serveur des scores lancé sur http://localhost:${PORT}`);
-});
-
-fetch("http://localhost:3000/score", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    name: "Alice", // à remplacer par un vrai pseudo
-    score: 12
-  })
-})
-.then(res => res.json())
-.then(data => {
-  console.log("Score enregistré :", data);
-})
-.catch(err => {
-  console.error("Erreur lors de l'envoi du score :", err);
 });
