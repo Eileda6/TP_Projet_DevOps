@@ -33,7 +33,7 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
 2. **Lancer le serveur Node.js** (backend) :
    - Va dans le dossier `server/` :
      ```bash
-     cd server
+     cd serveur
      ```
    - Installe les dépendances :
      ```bash
