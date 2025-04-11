@@ -21,7 +21,15 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
 ├── pageWeb/ 
 │ ├── index.html 
 │ ├── style.css 
-│ └── script.js 
+│ └── script.js
+├── serveur/ 
+│ ├── node-modules/
+│ ├── package-lock.json
+│ ├── package.json
+│ ├── scores.json
+│ ├── serveur.js
+| └── test/
+│       └── serveur.test.js
 ├── Dockerfile 
 ├── docker-compose.yml 
 └── README.md</pre>
@@ -31,9 +39,9 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
 
 1. **Ouvrir un terminal** dans le dossier `TP_Projet_DevOps`
 2. **Lancer le serveur Node.js** (backend) :
-   - Va dans le dossier `server/` :
+   - Va dans le dossier `serveur/` :
      ```bash
-     cd server
+     cd serveur
      ```
    - Installe les dépendances :
      ```bash
@@ -41,9 +49,9 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
      ```
    - Lance le serveur :
      ```bash
-     node server.js
+     node serveur.js
      ```
-   - Le serveur sera accessible sur `http://localhost:3000`
+   - Le serveur sera accessible sur http://localhost:3000
      
 3. **Construire l’image Docker** :
    ```bash
@@ -52,7 +60,7 @@ Le but est de retrouver toutes les paires de cartes avec le moins de coups possi
    ```bash
    docker-compose up
 
-Ouvrir le navigateur a l'adresse 👉 http://localhost:8080
+Ouvrir le navigateur a l'adresse http://localhost:8080
 
 5. **Arrêter le jeu** :
    ```bash
